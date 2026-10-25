@@ -22,10 +22,12 @@ public class Startup
 
     public IConfiguration Configuration { get; }
 
-    // This method gets called by the runtime. Use this method to add services to the container.
+    // Phương thức cấu hình các dịch vụ
     public void ConfigureServices(IServiceCollection services)
     {
+        // 1. Đăng ký Eureka Client với Configuration
         services.AddDiscoveryClient(Configuration);
+
         services.AddControllers()
             .AddNewtonsoftJson(opt => { opt.SerializerSettings.TypeNameHandling = TypeNameHandling.Auto; });
 
@@ -36,10 +38,13 @@ public class Startup
         services.AddSwaggerGen();
     }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    // Phương thức cấu hình HTTP Request Pipeline
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         app.UseRouting();
+
+    
+
         app.UseGlobalExceptionHandler(cfg => cfg.MapExceptions());
 
         if (env.IsDevelopment())
@@ -51,4 +56,4 @@ public class Startup
         app.UseInitializer();
         app.UseEndpoints(endpoints => endpoints.MapControllers());
     }
-}
+}   

@@ -3,6 +3,24 @@
     {
       "DownstreamPathTemplate": "/api/Products/{everything}",
       "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/Products/{everything}",
+      "ServiceName": "ProductService",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Products",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/Products",
+      "ServiceName": "ProductService",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Products/{everything}",
+      "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api/Products/{everything}",
       "ServiceName": "ProductService",
       "UpstreamHttpMethod": [
